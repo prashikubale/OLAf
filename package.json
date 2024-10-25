@@ -1,0 +1,11 @@
+{
+    "name": "proj",
+    "version": "1.0.0",
+    "description": "",
+    "main": "goooo.js",
+    "scripts": {
+      "test": "api error"
+    },
+    "author": "me",
+    "license": "ISC"
+  }

@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+#textOutput {
+    height: 400px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: add a border for visibility */
+    padding: 10px; /* Optional: add some padding */
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.main-container {
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    height: 80vh;
+    z-index: 2;
+}
+
+.panel {
+    flex: 1;
+    border: 2px solid rgba(150, 0, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    z-index: 3;
+    transition: border 0.3s ease;
+    /* Transition for hover effect */
+    box-shadow: 0 0 20px rgba(150, 0, 255, 0.5), 0 0 30px rgba(202, 130, 255, 0.2);
+    /* Add glow effect for mystery */
+}
+
+.panel:hover {
+    border-color: rgba(202, 130, 255, 1);
+    /* Change border color on hover */
+    box-shadow: 0 0 30px rgba(202, 130, 255, 1);
+    /* Stronger glow effect on hover */
+}
+
+.panel-header h1 {
+    font-size: 1.5rem;
+    color: #caa4ff;
+    text-align: center;
+}
+
+.panel-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.panel-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 15px;
+    width: 110%;
+    /* Make the input wider */
+    border: 1px solid #663399;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #663399;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ca82ff;
+    box-shadow: 0 0 10px rgba(202, 130, 255, 0.7), 0 0 20px rgba(202, 130, 255, 0.5);
+}
+
+canvas {
+    position: absolute;
+    /* Make canvas absolute */
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Ensure canvas is behind */
+}
+
+
+/*rotating icons*/
+
+.circle-container {
+    position: relative;
+    width: 200px;
+    /* Adjust as needed */
+    height: 200px;
+    /* Adjust as needed */
+}
+
+.rotating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate 10s linear infinite;
+    /* Rotate animation */
+}
+
+.icon {
+    position: absolute;
+    width: 40px;
+    /* Adjust size */
+    height: 40px;
+    /* Adjust size */
+    text-align: center;
+    line-height: 40px;
+    /* Center the icon vertically */
+    font-size: 24px;
+    /* Adjust icon size */
+    animation: move 10s linear infinite;
+    /* Random movement */
+}
+
+
+/* Keyframes for random movement */
+
+@keyframes move {
+    0% {
+        transform: translate(calc(100px * cos(0deg)), calc(100px * sin(0deg)));
+    }
+    25% {
+        transform: translate(calc(100px * cos(90deg)), calc(100px * sin(90deg)));
+    }
+    50% {
+        transform: translate(calc(100px * cos(180deg)), calc(100px * sin(180deg)));
+    }
+    75% {
+        transform: translate(calc(100px * cos(270deg)), calc(100px * sin(270deg)));
+    }
+    100% {
+        transform: translate(calc(100px * cos(360deg)), calc(100px * sin(360deg)));
+    }
+}
+
+
+/* Keyframes for rotation */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
